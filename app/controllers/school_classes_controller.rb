@@ -22,7 +22,7 @@ class SchoolClassesController < ApplicationController
         @school_class = SchoolClass.find(params[:id])
     end
 
-    private
+    private 
 
     def school_class_params
         params.require(:school_class).permit(:title, :room_number)
