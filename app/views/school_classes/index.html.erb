@@ -1,0 +1,7 @@
+<h1>School Classes Index</h1>
+
+<% @classes.each do |c| %>
+    <%= link_to c.title, school_class_path(c) %><br>
+<% end %>
+
+<%= link_to "New Class", new_school_class_path %>
