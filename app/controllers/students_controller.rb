@@ -1,4 +1,4 @@
-class StudentsController < ApplicatonController
+class StudentsController < ApplicationController
 
     def index
         @students = Student.all
@@ -13,6 +13,7 @@ class StudentsController < ApplicatonController
     end
 
     def edit
+        @student = Student.find(params[:id])
     end
 
     def create
@@ -22,12 +23,22 @@ class StudentsController < ApplicatonController
 
     def update
         @student = Student.update(student_params)
-        redirecr_to student_path(@student)
+        redirect_to student_path(@student)
     end
 
     def delete
         @student.destroy
         redirect_to students_path
+    end
+
+private
+
+    def set_student 
+        @student = Student.find(params[:id])
+    end
+
+    def student_params
+        params.require(:student).permit(:first_name, :last_name)
     end
 
 end

@@ -1,6 +1,15 @@
-<h1>Editing School Class</h1>
+<h1> School Class Form</h1>
 
-<%= render 'form', school_class: @school_class %>
+<%= form_for(@school_class) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 
-<%= link_to 'Show', @school_class %> |
-<%= link_to 'Back', school_classes_path %>
+    <%= f.label :room_number %>
+    <%= f.text_field :room_number %>
+    
+    <%= f.submit %>
+
+<% end %>
+
+
+<%= link_to('Back', school_classes_path) %>
